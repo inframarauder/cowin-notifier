@@ -1,0 +1,14 @@
+service: cowin-notifier
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: prod
+  region: ap-south-1
+
+functions:
+  scanAndNotify:
+    handler: src/index.scanAndNotify
