@@ -20,6 +20,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
 
+      - name: Create env file
+        run: |
+          cat > env.yml << EOF
+          ${{ secrets.ENV }}
+          EOF
+
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
@@ -27,6 +33,3 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          EMAIL: ${{secrets.EMAIL}}
-          PASSWORD: ${{secrets.PASSWORD}}
-          RECIPIENT: ${{secrets.RECIPIENT}}

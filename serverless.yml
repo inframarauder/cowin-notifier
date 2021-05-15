@@ -2,12 +2,20 @@ service: cowin-notifier
 
 frameworkVersion: "2"
 
+custom:
+  defaultStage: prod
+  environment: ${file(env.yml):default}
+
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   stage: prod
   region: ap-south-1
+  environment:
+    EMAIL: ${self:custom.environment.EMAIL}
+    PASSWORD: ${self:custom.environment.PASSWORD}
+    RECIPIENT: ${self:custom.environment.RECIPIENT}
 
 functions:
   scanAndNotify:
