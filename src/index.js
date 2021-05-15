@@ -3,7 +3,7 @@ const sendEmail = require("./utils/email");
 
 //declaring constants - change according to your needs:
 const STATE = "WEST BENGAL";
-const DISTRICT = "PURULIA";
+const DISTRICT = "KOLKATA";
 const MIN_AGE = 18;
 
 module.exports.scanAndNotify = async () => {
