@@ -1,10 +1,13 @@
 const { getStateId, getDistrictId, searchFreeSlots } = require("./utils/api");
 const sendEmail = require("./utils/email");
 
+//declaring constants - change according to your needs:
+const STATE = "WEST BENGAL";
+const DISTRICT = "KOLKATA";
+const MIN_AGE = 18;
+
 module.exports.scanAndNotify = async () => {
   try {
-    const { STATE, DISTRICT, MIN_AGE } = process.env;
-
     const stateId = await getStateId(STATE);
     const districtId = await getDistrictId(stateId, DISTRICT);
 
