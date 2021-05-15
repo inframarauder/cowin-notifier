@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        border: 1px solid #4733ff;
+        border-radius: 10px;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Vaccination Slots Available Now!</h1>
+      <p>Hi,</p>
+      <h4>
+        There are <%= centers.length %> centers with free vaccination slots in
+        Purulia!
+      </h4>
+      <table>
+        <tr>
+          <th>Sl.No</th>
+          <th>Hospital</th>
+          <th>Slot Details</th>
+        </tr>
+        <% for(var i = 0; i < centers.length; i++){ %> <% if(i % 2 === 0){ %>
+        <tr style="background-color: #f2f2f2">
+          <td><%= (i+1) %></td>
+          <td>
+            <p>
+              <strong><%= centers[i].name %></strong><br />
+              <%= centers[i].address %><br />
+              Dist : <%= centers[i].district %><br />
+              PIN : <%= centers[i].pincode %><br />
+              COST : <%= centers[i].feeType %><br />
+            </p>
+          </td>
+          <td>
+            <% for(var j = 0; j < centers[i].emptySlots.length; j++){ %>
+            <p>
+              Date : <strong><%= centers[i].emptySlots[j].date %> </strong>
+              <br />
+              Slots Left :
+              <strong
+                ><%= centers[i].emptySlots[j].available_capacity %></strong
+              >
+              <br />
+              Vaccine :<strong> <%= centers[i].emptySlots[j].vaccine %></strong
+              ><br />
+              Age :
+              <strong> <%= centers[i].emptySlots[j].min_age_limit %> + </strong
+              ><br />
+            </p>
+            <% } %>
+          </td>
+        </tr>
+        <% } else {%>
+
+        <tr>
+          <td><%= (i+1) %></td>
+          <td>
+            <p>
+              <strong><%= centers[i].name %></strong><br />
+              <%= centers[i].address %><br />
+              Dist : <%= centers[i].district %><br />
+              PIN : <%= centers[i].pincode %><br />
+              COST : <%= centers[i].feeType %><br />
+            </p>
+          </td>
+          <td>
+            <% for(var j = 0; j < centers[i].emptySlots.length; j++){ %>
+            <p>
+              Date : <strong><%= centers[i].emptySlots[j].date %> </strong>
+              <br />
+              Slots Left :
+              <strong
+                ><%= centers[i].emptySlots[j].available_capacity %></strong
+              >
+              <br />
+              Vaccine :<strong> <%= centers[i].emptySlots[j].vaccine %></strong
+              ><br />
+              Age :
+              <strong> <%= centers[i].emptySlots[j].min_age_limit %> + </strong
+              ><br />
+            </p>
+            <% } %>
+          </td>
+        </tr>
+
+        <% } %> <% } %>
+      </table>
+      <p>
+        Book your slot now on -
+        <a href="https://cowin.gov.in">CoWin Website!</a>
+      </p>
+    </div>
+  </body>
+</html>

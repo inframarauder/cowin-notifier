@@ -88,6 +88,7 @@ exports.searchFreeSlots = (districtId, minAge) => {
             centerId: center.center_id,
             name: center.name,
             address: center.address,
+            district: center.district_name,
             pincode: center.pincode,
             feeType: center.fee_type,
             emptySlots,

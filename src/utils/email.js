@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const ejs = require("ejs");
 
 const transport = nodemailer.createTransport({
   host: "smtp.zoho.in",
@@ -18,16 +19,15 @@ const transport = nodemailer.createTransport({
 module.exports = (centers) => {
   return new Promise(async (resolve, reject) => {
     try {
+      const html = await ejs.renderFile(
+        __dirname + "/views/mail-template.ejs",
+        { centers }
+      );
       const mailOptions = {
         from: process.env.EMAIL,
         to: process.env.RECIPIENT,
         subject: "CoWin Free Slots Available!",
-        html: `
-        <p>Hi,</p>
-        <p>${centers.length} hospitals currently have empty vaccination slots in your district.
-        Visit <a href='https://cowin.gov.in'>CoWin</a> to book now!</p>
-        <p>Happy Vaccination!</p>
-        `,
+        html,
       };
 
       await transport.sendMail(mailOptions);
