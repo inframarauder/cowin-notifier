@@ -57,7 +57,7 @@ exports.getDistrictId = (stateId, districtName) => {
 
 /**This method returns list of vaccination centers with empty slots for the next 7 days since current date */
 
-exports.searchFreeSlotsByDistrict = (districtId, minAge) => {
+exports.searchFreeSlots = (districtId, minAge) => {
   return new Promise(async (resolve, reject) => {
     try {
       const today = `${new Date().getDate()}-0${
@@ -78,7 +78,7 @@ exports.searchFreeSlotsByDistrict = (districtId, minAge) => {
         let emptySlots = [];
         center.sessions.forEach((session) => {
           const { available_capacity, min_age_limit } = session;
-          if (available_capacity > 0 && min_age_limit >= minAge) {
+          if (available_capacity > 0 && min_age_limit >= parseInt(minAge)) {
             emptySlots.push(session);
           }
         });

@@ -1,22 +1,14 @@
-const {
-  getStateId,
-  getDistrictId,
-  searchFreeSlotsByDistrict,
-} = require("./utils/api");
+const { getStateId, getDistrictId, searchFreeSlots } = require("./utils/api");
 
 module.exports.scanAndNotify = async () => {
   try {
-    const MIN_AGE = 18;
-    const STATE = "WEST BENGAL";
-    const DISTRICT = "PURULIA";
+    const { STATE, DISTRICT, MIN_AGE } = process.env;
 
     const stateId = await getStateId(STATE);
     const districtId = await getDistrictId(stateId, DISTRICT);
 
-    const availableCenters = await searchFreeSlotsByDistrict(
-      districtId,
-      MIN_AGE
-    );
+    const availableCenters = await searchFreeSlots(districtId, MIN_AGE);
+
     console.log(`${availableCenters.length} centers available`);
     return availableCenters;
   } catch (error) {

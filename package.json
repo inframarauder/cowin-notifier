@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "invoke-local": "serverless invoke local --function scanAndNotify"
+    "invoke-local": "serverless invoke local -f scanAndNotify -e STATE=\"WEST BENGAL\" -e DISTRICT=\"PURULIA\" -e MIN_AGE=18"
   },
   "repository": {
     "type": "git",
