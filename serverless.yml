@@ -4,7 +4,7 @@ frameworkVersion: "2"
 
 custom:
   defaultStage: prod
-  environment: ${file(env.yml):default}
+  environment: ${file(.env.yml):default}
 
 provider:
   name: aws

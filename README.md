@@ -15,7 +15,7 @@ A Node.js AWS Lambda function to periodically check cowin for empty vaccination 
   - `AWS_ACCESS_KEY_ID` : access key ID of your AWS Account with relevant roles and permissions
   - `AWS_SECRET_ACCESS_KEY `: secret acces key of the above mentioned account
   - `ENV`: just copy paste the contents of your `.env.yml` file from local machine here
-- Update the `STATE`, `DISTRICT` and `MIN_AGE` variables in `src/index.js` lines 5,6 and 7 as per your needs.
+- Update the `STATE`, `DISTRICT` ,`MIN_AGE` and `VACCINES` variables in `src/index.js` lines 5-8 as per your needs.
 - Commit changes and push to main branch to trigger automated deploy to AWS Lambda
 - In your AWS Account, go to the lambda function and add Cloudwatch Event Trigger to run at a frequency that suits you. It's two hours in my case.
 
