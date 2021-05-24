@@ -7,7 +7,10 @@ exports.getStateId = (stateName) => {
       const { data } = await axios.get(
         "https://cdn-api.co-vin.in/api/v2/admin/location/states",
         {
-          headers: { "User-Agent": "PostmanRuntime/7.28.0" },
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          },
         }
       );
 
@@ -33,7 +36,10 @@ exports.getDistrictId = (stateId, districtName) => {
       const { data } = await axios.get(
         `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateId}`,
         {
-          headers: { "User-Agent": "PostmanRuntime/7.28.0" },
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          },
         }
       );
       if (data.districts.length > 0) {
@@ -68,7 +74,10 @@ exports.searchFreeSlots = (districtId, minAge, vaccines) => {
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict`,
         {
           params: { district_id: districtId, date: today },
-          headers: { "User-Agent": "PostmanRuntime/7.28.0" },
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          },
         }
       );
 
