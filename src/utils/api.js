@@ -96,7 +96,6 @@ exports.searchFreeSlots = (districtId, minAge, doseNo) => {
         });
 
         if (emptySlots.length > 0) {
-          console.log(center);
           availableCenters.push({
             centerId: center.center_id,
             name: center.name,

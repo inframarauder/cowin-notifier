@@ -5,7 +5,7 @@ const sendEmail = require("./utils/email");
 const STATE = "WEST BENGAL";
 const DISTRICT = "KOLKATA";
 const MIN_AGE = 18;
-const DOSE_NO = 1; //select which dose - 1 or 2
+const DOSE_NO = 2; //select which dose - 1 or 2
 
 module.exports.scanAndNotify = async () => {
   try {
