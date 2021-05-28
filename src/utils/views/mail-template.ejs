@@ -5,7 +5,7 @@
       .container {
         border: 1px solid #4733ff;
         border-radius: 10px;
-        max-width: 500px;
+        max-width: 100%;
         margin: auto;
         padding: 20px;
       }
@@ -29,8 +29,9 @@
       <h1>Vaccination Slots Available Now!</h1>
       <p>Hi,</p>
       <h4>
-        There are <%= centers.length %> centers with free vaccination slots in
-        your district!
+        There are <strong><%= centers.length %> centers</strong> with free
+        vaccination slots for <strong> DOSE <%= doseNo %></strong>
+        in your district!
       </h4>
       <table>
         <tr>

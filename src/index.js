@@ -5,22 +5,23 @@ const sendEmail = require("./utils/email");
 const STATE = "WEST BENGAL";
 const DISTRICT = "KOLKATA";
 const MIN_AGE = 18;
-const VACCINES = ["COVAXIN"]; // possible values - ["COVISHIELD","COVAXIN","SPUTNIK-V"]
+const DOSE_NO = 1; //select which dose - 1 or 2
 
 module.exports.scanAndNotify = async () => {
   try {
     const stateId = await getStateId(STATE);
     const districtId = await getDistrictId(stateId, DISTRICT);
-
     const availableCenters = await searchFreeSlots(
       districtId,
       MIN_AGE,
-      VACCINES
+      DOSE_NO
     );
 
-    console.log(`${availableCenters.length} centers available`);
+    console.log(
+      `${availableCenters.length} centers available for dose ${DOSE_NO}`
+    );
     if (availableCenters.length > 0) {
-      await sendEmail(availableCenters);
+      await sendEmail(availableCenters, DOSE_NO);
       return "Email Sent!";
     } else {
       return "No centers found :(";

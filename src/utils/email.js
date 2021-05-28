@@ -4,7 +4,6 @@ const ejs = require("ejs");
 const transport = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
-  secure: true,
 
   auth: {
     user: process.env.EMAIL,
@@ -16,12 +15,12 @@ const transport = nodemailer.createTransport({
   },
 });
 
-module.exports = (centers) => {
+module.exports = (centers, doseNo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const html = await ejs.renderFile(
         __dirname + "/views/mail-template.ejs",
-        { centers }
+        { centers, doseNo }
       );
       const mailOptions = {
         from: process.env.EMAIL,
