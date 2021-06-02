@@ -25,6 +25,9 @@
     </style>
   </head>
   <body>
+    <!-- this ensures Gmail doesn't trim the email -->
+    <span style="opacity: 0"> <%= Date.now() %> </span>
+
     <div class="container">
       <h1>Vaccination Slots Available Now!</h1>
       <p>Hi,</p>
@@ -110,5 +113,7 @@
         <a href="https://cowin.gov.in">CoWin Website!</a>
       </p>
     </div>
+    <!-- this ensures Gmail doesn't trim the email -->
+    <span style="opacity: 0"> <%= Date.now() %> </span>
   </body>
 </html>
