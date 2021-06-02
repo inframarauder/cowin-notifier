@@ -86,7 +86,7 @@ exports.searchFreeSlots = (districtId, minAge, doseNo) => {
       data.centers.forEach((center) => {
         let emptySlots = [];
         center.sessions.forEach((session) => {
-          if (session.min_age_limit >= parseInt(minAge)) {
+          if (minAge.includes(session.min_age_limit)) {
             const key = `available_capacity_dose${doseNo}`;
 
             if (session[key] && session[key] > 0) {
