@@ -20,7 +20,7 @@ A Node.js AWS Lambda function to periodically check cowin for empty vaccination 
 2. Create a `.env.yml` file at the root of the directory
 3. Open the `.sample.env.yml` file and copy-paste the contents into the `.env.yml` file.
 4. Follow the comments to replace the values of the environment variables according to your setup inside the `.env.yml` file.
-5. Go to `src/index.js` and set the value for the constants defined in lines 5-8 as per your own needs.
+5. Go to `src/index.js` and set the value for the constants defined in lines 5-9 as per your own needs.
 6. Commit the changes to your local git repository.
 7. Create a new repo on GitHub and go to settings > secrets for the repo. This is where we store secrets for a GitHub action CI/CD pipeline.
 8. To add a secret, click on `New repository secret`. Follow this step to add the following secrets:
